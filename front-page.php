@@ -6,7 +6,7 @@
 
 <h1 class="front-page-title center"><?php bloginfo('name'); ?></h1>
 
-<div class="about">
+<div class="front-page-about center">
 	<p><?php echo get_theme_mod('rjh_about'); ?></p>
 </div>
 

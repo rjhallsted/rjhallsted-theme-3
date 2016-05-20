@@ -6,6 +6,11 @@ Author URI: http://rjhallsted.com/
 
 @import url('normalize.css');
 
+body {
+	line-height: 1.5;
+	background: white;
+}
+
 .center {
 	margin-left: auto;
 	margin-right: auto;
@@ -30,4 +35,8 @@ Author URI: http://rjhallsted.com/
 .front-page-title {
 	text-align: center;
 	letter-spacing: 1px;
+}
+
+.front-page-about {
+	max-width: 400px;
 }
