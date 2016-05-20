@@ -31,6 +31,16 @@ function rjh_customizer_front_page( $wp_customize ) {
 			)
 		)
 	);
+
+	$wp_customize->add_setting( 'rjh_about' );
+	$wp_customize->add_control(
+		'rjh_about',
+		array(
+			'label' => 'Short about section',
+			'section' => 'front_page',
+			'type' => 'textarea'
+		)
+	);
 }
 
 ?>
