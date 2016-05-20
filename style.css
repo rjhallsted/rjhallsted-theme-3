@@ -6,3 +6,28 @@ Author URI: http://rjhallsted.com/
 
 @import url('normalize.css');
 
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.main {
+	max-width: 800px;
+	width: 100%;
+}
+
+.front-page-portrait {
+	max-width: 300px;
+	border-radius: 5%;
+	margin-top: 15vh;
+}
+
+.front-page-portrait img {
+	width: 100%;
+	display: block;
+}
+
+.front-page-title {
+	text-align: center;
+	letter-spacing: 1px;
+}

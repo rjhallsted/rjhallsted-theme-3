@@ -7,4 +7,4 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<div class="main">
+	<div class="main center">

@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
-<img src="">
+<div class="front-page-portrait center">
+	<img src="<?php echo get_theme_mod('front_page_image'); ?>" class="front-page-portrait">
+</div>
 
-<h1><?php wp_title(); ?></h1>
+<h1 class="front-page-title center"><?php bloginfo('name'); ?></h1>
 
 <div class="about">
 	
