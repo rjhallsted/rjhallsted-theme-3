@@ -10,15 +10,17 @@
 	<p><?php echo get_theme_mod('rjh_about'); ?></p>
 </div>
 
-<section class="projects half">
-	<h2>Projects</h2> <!--link to projects-->
-	<!-- projects loop here -->
-</section>
+<div class="links-container">
+	<section class="projects half">
+		<h2>Projects</h2> <!--link to projects-->
+		<!-- projects loop here -->
+	</section>
 
-<section class="writing half">
-	<h2>Writing</h2> <!--link to writing-->
-	<!-- blog posts loop here -->
-</section>
+	<section class="writing half">
+		<h2>Writing</h2> <!--link to writing-->
+		<!-- blog posts loop here -->
+	</section>
+</div>
 
 <section class="clients">
 	<!-- Client list here -->

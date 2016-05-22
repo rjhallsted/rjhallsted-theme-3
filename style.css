@@ -16,6 +16,10 @@ body {
 	margin-right: auto;
 }
 
+.half {
+	width: 50%;
+}
+
 .main {
 	max-width: 800px;
 	width: 100%;
@@ -39,4 +43,11 @@ body {
 
 .front-page-about {
 	max-width: 400px;
+}
+
+.links-container {
+	-webkit-display: flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
 }
