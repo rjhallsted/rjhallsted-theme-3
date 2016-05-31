@@ -72,6 +72,10 @@ class RJHSimpleCustomField {
 			delete_post_meta( $post_id, $this->key, $old_value );
 		}
 	}
+
+	function get_meta( $post_id ) {
+		return get_post_meta( $post_id, $this->key );
+	}
 }
 
 ?>

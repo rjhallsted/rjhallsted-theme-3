@@ -10,7 +10,7 @@ function rjh_sanitize_project_link( $value ) {
 }
 
 function rjh_get_project_link( $post_id ) {
-	$raw_url = get_post_meta($post_id, 'rjh_project_link', true);
+	$raw_url = $project_link->get_meta( $post_id );
 	return esc_url( $raw_url );
 }
 
