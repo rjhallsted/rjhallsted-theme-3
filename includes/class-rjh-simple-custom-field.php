@@ -7,12 +7,13 @@ class RJHSimpleCustomField {
 	private $position;
 	private $priority;
 
-	function __construct($field_name, $post_type, $position, $priority) {
+	function __construct($field_name, $post_type, $position, $priority, $sanitization_callback ) {
 		$this->name = $field_name;
 		$this->key = 'rjh_' . sanitize_key( $field_name );
 		$this->post_type = $post_type;
 		$this->position = $position;
 		$this->priority = $priority;
+		$this->sanitization_callback;
 	}
 
 	function init() {
@@ -57,7 +58,9 @@ class RJHSimpleCustomField {
 
 		$new_value = isset( $_POST[$this->key] ) ? $_POST[$this->key] : '';
 
-		//run passed data validation on $new_value here.
+		if( $this->sanitization_callback ) {
+			$new_value = call_user_func($this->sanitization_callback, $new_value);
+		}
 
 		$old_value = get_post_meta( $post_id, $this->key, true );
 
