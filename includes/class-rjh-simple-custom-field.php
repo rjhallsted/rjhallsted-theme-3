@@ -7,7 +7,7 @@ class RJHSimpleCustomField {
 	private $position;
 	private $priority;
 
-	private function __construct($field_name, $post_type, $position, $priority, $sanitization_callback ) {
+	public function __construct($field_name, $post_type, $position, $priority, $sanitization_callback ) {
 		$this->name = $field_name;
 		$this->key = 'rjh_' . sanitize_key( $field_name );
 		$this->post_type = $post_type;
@@ -74,7 +74,7 @@ class RJHSimpleCustomField {
 	}
 
 	public function get_meta( $post_id ) {
-		return get_post_meta( $post_id, $this->key );
+		return get_post_meta( $post_id, $this->key, true );
 	}
 }
 
