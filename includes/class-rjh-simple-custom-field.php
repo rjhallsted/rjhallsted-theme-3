@@ -7,7 +7,7 @@ class RJHSimpleCustomField {
 	private $position;
 	private $priority;
 
-	function __construct($field_name, $post_type, $position, $priority, $sanitization_callback ) {
+	private function __construct($field_name, $post_type, $position, $priority, $sanitization_callback ) {
 		$this->name = $field_name;
 		$this->key = 'rjh_' . sanitize_key( $field_name );
 		$this->post_type = $post_type;
@@ -16,17 +16,17 @@ class RJHSimpleCustomField {
 		$this->sanitization_callback;
 	}
 
-	function init() {
+	public function init() {
 		add_action('load-post.php', array( $this, 'setup' ));
 		add_action('load-post-new.php', array( $this, 'setup' ) );
 	}
 
-	function setup() {
+	private function setup() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
 		add_action( 'save_post', array( $this, 'save_meta'), 10, 2);
 	}
 
-	function add_meta_box() {
+	private function add_meta_box() {
 		add_meta_box(
 			$this->key,
 			esc_html__($this->name),
@@ -37,7 +37,7 @@ class RJHSimpleCustomField {
 			);
 	}
 
-	function display_meta_box( $object, $box ) { ?>
+	private function display_meta_box( $object, $box ) { ?>
 		<?php wp_nonce_field( basename(__FILE__), $this->key . '_nonce' ); ?>
 
 		<p>
@@ -45,7 +45,7 @@ class RJHSimpleCustomField {
 		</p>
 	<?php }
 
-	function save_meta( $post_id, $post ) {
+	private function save_meta( $post_id, $post ) {
 		if( !isset( $_POST[$this->key . '_nonce'] ) ||
 			!wp_verify_nonce( $_POST[$this->key . '_nonce'], basename(__FILE__) ) ) {
 			return $post_id;
@@ -73,7 +73,7 @@ class RJHSimpleCustomField {
 		}
 	}
 
-	function get_meta( $post_id ) {
+	public function get_meta( $post_id ) {
 		return get_post_meta( $post_id, $this->key );
 	}
 }
