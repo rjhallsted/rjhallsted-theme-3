@@ -11,7 +11,7 @@
 </div>
 
 <div class="links-container">
-	<section class="projects half">
+	<section class="projects-container half">
 		<h2>Projects</h2> <!--link to projects-->
 		<?php
 		$project_query = new WP_Query(array( 'post_type' => 'project' ));
@@ -20,13 +20,14 @@
 		?>
 			<ul class="projects">
 
-
 		<?php while( $project_query->have_posts() ) : $project_query->the_post(); ?>
 
 				<li class="single-project">
 					<div class="project-title"><?php the_title(); ?></div>
-					<p class="project-description"><?php the_content(); ?></p>
-					<p><a href="<?php echo rjh_get_project_link($project_query->post->ID); ?>" class="project-link"><?php echo rjh_get_project_link($project_query->post->ID); ?></a></p>
+					<div class="collapsed">
+						<div class="project-description"><?php the_content(); ?></div>
+						<p><a href="<?php echo rjh_get_project_link($project_query->post->ID); ?>" class="project-link"><?php echo rjh_get_project_link($project_query->post->ID); ?></a></p>
+					</div>
 				</li>
 
 		<?php endwhile; ?>

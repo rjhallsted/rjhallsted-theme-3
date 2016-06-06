@@ -66,9 +66,30 @@ a:hover {
 	flex-direction: row;
 }
 
+.collapsed {
+	display: none;
+}
+
+.no-js .collapsed {
+	display: block;
+}
 
 /*projects*/
-.page .projects {
+
+.projects-container {
+	padding-right: 1rem;
+}
+
+.home .project-title:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.home .projects {
+	padding-left: 1rem;
+}
+
+.page-template-page-projects .projects {
 	margin: 0;
 	padding: 0;
 }
@@ -79,4 +100,8 @@ a:hover {
 
 .page-template-page-projects .single-project {
 	border-bottom: 1px solid #aaa;
+}
+
+.no-js.home .single-project .collapsed {
+	margin-left: 2rem;
 }

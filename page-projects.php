@@ -23,7 +23,7 @@ Template Name: Projects Page
 
 			<li class="single-project">
 				<h3 class="project-title"><?php the_title(); ?></h3>
-				<p class="project-description"><?php the_content(); ?></p>
+				<div class="project-description"><?php the_content(); ?></div>
 				<p><a href="<?php echo rjh_get_project_link($project_query->post->ID); ?>" class="project-link"><?php echo rjh_get_project_link($project_query->post->ID); ?></a></p>
 			</li>
 
