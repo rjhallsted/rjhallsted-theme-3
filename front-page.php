@@ -34,12 +34,25 @@
 			</ul>
 		<?php else: ?>
 			<p>Sorry, but nothing was found here.</p>
-		<?php endif; ?>
+		<?php endif;?>
+		<?php wp_reset_postdata(); ?>
 	</section>
 
 	<section class="writing half">
 		<h2>Writing</h2> <!--link to writing-->
-		<!-- blog posts loop here -->
+		<?php
+		$writing_query = new WP_Query( array('posts_per_page' => 5) );
+		if( $writing_query->have_posts() ) :
+		?>
+			<ul class="post-list">
+		<?php while( $writing_query->have_posts() ) : $writing_query->the_post(); ?>
+				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+		<?php endwhile; ?>
+			</ul>
+		<?php else :  ?>
+			<p>Sorry, but nothing was found here.</p>
+		<?php endif; ?>
+		<?php wp_reset_postdata(); ?>
 	</section>
 </div>
 

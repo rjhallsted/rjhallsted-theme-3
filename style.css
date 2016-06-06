@@ -60,10 +60,14 @@ a:hover {
 }
 
 .links-container {
-	-webkit-display: flex;
 	display: flex;
 	-webkit-flex-direction: row;
 	flex-direction: row;
+	justify-content: center;
+}
+
+.links-container .half {
+	max-width: 330px;
 }
 
 .collapsed {
@@ -72,6 +76,11 @@ a:hover {
 
 .no-js .collapsed {
 	display: block;
+}
+
+
+.home ul {
+	padding-left: 1rem;
 }
 
 /*projects*/
@@ -83,10 +92,6 @@ a:hover {
 .home .project-title:hover {
 	cursor: pointer;
 	text-decoration: underline;
-}
-
-.home .projects {
-	padding-left: 1rem;
 }
 
 .page-template-page-projects .projects {
