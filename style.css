@@ -25,6 +25,20 @@ body {
 	width: 100%;
 }
 
+a {
+	transition: color .3s;
+}
+
+a,
+a:visited,
+a:active {
+	color: #999;
+}
+
+a:hover {
+	color: #000;
+}
+
 .front-page-portrait {
 	max-width: 300px;
 	border-radius: 5%;
@@ -50,4 +64,19 @@ body {
 	display: flex;
 	-webkit-flex-direction: row;
 	flex-direction: row;
+}
+
+
+/*projects*/
+.page .projects {
+	margin: 0;
+	padding: 0;
+}
+
+.page-template-page-projects .single-project {
+	list-style-type: none;
+}
+
+.page-template-page-projects .single-project {
+	border-bottom: 1px solid #aaa;
 }

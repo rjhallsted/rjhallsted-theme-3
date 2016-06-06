@@ -13,7 +13,27 @@
 <div class="links-container">
 	<section class="projects half">
 		<h2>Projects</h2> <!--link to projects-->
-		<!-- projects loop here -->
+		<?php
+		$project_query = new WP_Query(array( 'post_type' => 'project' ));
+
+		if( $project_query->have_posts() ) :
+		?>
+			<ul class="projects">
+
+
+		<?php while( $project_query->have_posts() ) : $project_query->the_post(); ?>
+
+				<li class="single-project">
+					<div class="project-title"><?php the_title(); ?></div>
+					<p class="project-description"><?php the_content(); ?></p>
+					<p><a href="<?php echo rjh_get_project_link($project_query->post->ID); ?>" class="project-link"><?php echo rjh_get_project_link($project_query->post->ID); ?></a></p>
+				</li>
+
+		<?php endwhile; ?>
+			</ul>
+		<?php else: ?>
+			<p>Sorry, but nothing was found here.</p>
+		<?php endif; ?>
 	</section>
 
 	<section class="writing half">
