@@ -6,7 +6,7 @@ require_once 'includes/custom-fields.php';
 function rjh_scripts() {
 	wp_enqueue_style('rjh-style', get_stylesheet_uri() );
 
-	wp_enqueue_script('rjh-js', get_template_directory_uri() . '/scripts.js', array('jquery') );
+	wp_enqueue_script('rjh-js', get_template_directory_uri() . '/scripts.js', array('jquery'), '0.1.0', true );
 }
 add_action('wp_enqueue_scripts', 'rjh_scripts');
 
