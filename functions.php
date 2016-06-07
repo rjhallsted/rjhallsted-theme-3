@@ -13,6 +13,8 @@ add_action('wp_enqueue_scripts', 'rjh_scripts');
 function rjh_theme_setup() {
 	rjh_register_project_post_type();
 	rjh_register_writing_link_post_type();
+
+	register_nav_menus( array( 'top-menu' => 'Top Menu' ) );
 }
 add_action('after_setup_theme', 'rjh_theme_setup');
 
