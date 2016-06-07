@@ -110,3 +110,10 @@ a:hover {
 .no-js.home .single-project .collapsed {
 	margin-left: 2rem;
 }
+
+
+/*Writing*/
+.page-template-page-writing .single-post-summary {
+	border-bottom: 1px solid #aaa;
+	padding: 1rem;
+}
