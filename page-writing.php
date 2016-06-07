@@ -12,7 +12,9 @@ Template Name: Writing Archive
 	
 	<?php
 	//projects loop
-	$args = array( 'post_type' => array('post', 'writing-link' ) );
+	$args = array( 
+		'post_type' => array('post', 'writing-link' ),
+		'posts_per_page' => -1 );
 	$writing_query = new WP_Query( $args );
 	?>
 
