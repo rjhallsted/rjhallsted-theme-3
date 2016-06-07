@@ -41,12 +41,21 @@
 	<section class="writing half">
 		<h2>Writing</h2> <!--link to writing-->
 		<?php
-		$writing_query = new WP_Query( array('posts_per_page' => 5) );
+		$writing_query = new WP_Query( array(
+			'posts_per_page' => 5,
+			'post_type' => array('post', 'writing-link') ) );
 		if( $writing_query->have_posts() ) :
 		?>
 			<ul class="post-list">
 		<?php while( $writing_query->have_posts() ) : $writing_query->the_post(); ?>
-				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+		<?php 
+		if($writing_query->post->post_type == 'writing-link') {
+			$the_link = rjh_get_writing_link_url( $writing_query->post->ID );
+		} else {
+			$the_link = get_permalink();
+		}
+		?>
+				<li><a href="<?php echo $the_link; ?>"><?php the_title(); ?></a></li>
 		<?php endwhile; ?>
 			</ul>
 		<?php else :  ?>
