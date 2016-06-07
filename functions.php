@@ -11,6 +11,13 @@ function rjh_scripts() {
 add_action('wp_enqueue_scripts', 'rjh_scripts');
 
 function rjh_theme_setup() {
+	rjh_register_project_post_type();
+	rjh_register_writing_link_post_type();
+}
+add_action('after_setup_theme', 'rjh_theme_setup');
+
+
+function rjh_register_project_post_type() {
 	$labels = array(
 		'name' => 'Projects',
 		'singular_name' => 'Project',
@@ -36,6 +43,33 @@ function rjh_theme_setup() {
 
 	register_post_type('project', $args);
 }
-add_action('after_setup_theme', 'rjh_theme_setup');
+
+function rjh_register_writing_link_post_type() {
+	$labels = array(
+		'name' => 'Writing Links',
+		'singular_name' => 'Writing Link',
+		'add_new_item' => 'Add New Writing Link',
+		'edit_item' => 'Edit Writing Link',
+		'new_item' => 'New Writing Link',
+		'view_item' => 'View Writing Link',
+		'search_items' => 'Search Writing Links',
+		'not_found' => 'No writing links found.',
+		'not_found_in_trash' => 'No writing links found in trash',
+		'all_items' => 'All Writing Links',
+		'archives' => 'Writing Link Archives'
+		);
+
+	$args = array(
+		'labels' => $labels,
+		'description' => 'A link to an external piece of writing',
+		'public' => true,
+		'menu_position' => 21,
+		'menu_icon' => 'dashicons-admin-links',
+		'supports' => array('title', 'custom-fields')
+		);
+
+	register_post_type('writing-link', $args);
+}
+
 
 ?>
