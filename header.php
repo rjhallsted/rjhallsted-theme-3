@@ -7,4 +7,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class('no-js'); ?>>
-	<div class="main center">
+	<header class="container center site-header">	
+		<?php wp_nav_menu('top-menu'); ?>
+	</header>
+	<div class="container center">
