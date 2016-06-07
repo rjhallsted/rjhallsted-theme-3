@@ -21,12 +21,12 @@ class RJHSimpleCustomField {
 		add_action('load-post-new.php', array( $this, 'setup' ) );
 	}
 
-	private function setup() {
+	public function setup() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
 		add_action( 'save_post', array( $this, 'save_meta'), 10, 2);
 	}
 
-	private function add_meta_box() {
+	public function add_meta_box() {
 		add_meta_box(
 			$this->key,
 			esc_html__($this->name),
@@ -37,7 +37,7 @@ class RJHSimpleCustomField {
 			);
 	}
 
-	private function display_meta_box( $object, $box ) { ?>
+	public function display_meta_box( $object, $box ) { ?>
 		<?php wp_nonce_field( basename(__FILE__), $this->key . '_nonce' ); ?>
 
 		<p>
@@ -45,7 +45,7 @@ class RJHSimpleCustomField {
 		</p>
 	<?php }
 
-	private function save_meta( $post_id, $post ) {
+	public function save_meta( $post_id, $post ) {
 		if( !isset( $_POST[$this->key . '_nonce'] ) ||
 			!wp_verify_nonce( $_POST[$this->key . '_nonce'], basename(__FILE__) ) ) {
 			return $post_id;

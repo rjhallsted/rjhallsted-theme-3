@@ -65,7 +65,7 @@ function rjh_register_writing_link_post_type() {
 		'public' => true,
 		'menu_position' => 21,
 		'menu_icon' => 'dashicons-admin-links',
-		'supports' => array('title', 'custom-fields')
+		'supports' => array('title')
 		);
 
 	register_post_type('writing-link', $args);
