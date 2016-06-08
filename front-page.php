@@ -79,4 +79,5 @@ if( $client_query->have_posts() ):
 
 <?php endif; ?>
 
+<?php wp_reset_postdata(); ?>
 <?php get_footer(); ?>
