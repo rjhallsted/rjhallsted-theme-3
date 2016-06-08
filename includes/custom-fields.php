@@ -26,4 +26,17 @@ function rjh_get_writing_link_url( $post_id ) {
 	$raw_url = $writing_link_url_meta->get_meta( $post_id );
 	return esc_url( $raw_url );
 }
+
+function rjh_client_url_meta() {
+	global $client_url_meta;
+	$client_url_meta = new RJHSimpleCustomField( 'Client URL', 'client', 'normal', 'default', 'esc_raw_url');
+	$client_url_meta->init();
+}
+add_action( 'init', 'rjh_client_url_meta' );
+
+function rjh_get_client_url( $post_id ) {
+	global $client_url_meta;
+	$raw_url = $client_url_meta->get_meta( $post_id );
+	return esc_url( $raw_url );
+}
 ?>

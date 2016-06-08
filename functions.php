@@ -73,5 +73,31 @@ function rjh_register_writing_link_post_type() {
 	register_post_type('writing-link', $args);
 }
 
+function rjh_register_client_post_type() {
+	$labels = array(
+		'name' => 'Clients',
+		'singular_name' => 'Client',
+		'add_new_item' => 'Add New Client',
+		'edit_item' => 'Edit Client',
+		'new_item' => 'New Client',
+		'view_item' => 'View Client',
+		'search_items' => 'Search Clients',
+		'not_found' => 'No clients found.',
+		'not_found_in_trash' => 'No clients found in trash',
+		'all_items' => 'All Clients',
+		'archives' => 'Client Archives'
+		);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'menu_position' => 22,
+		'menu_icon' => 'dashicons-businessman',
+		'supports' => array('title')
+		);
+
+	register_post_type('client', $args);
+}
+
 
 ?>
