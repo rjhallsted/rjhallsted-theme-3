@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-	max-width: 800px;
+	max-width: 660px;
 	width: 100%;
 }
 
@@ -136,4 +136,13 @@ a:hover {
 	padding: 1rem;
 }
 
-.page-t
+.clients {
+	margin-bottom: 3rem;
+}
+
+.clients .single::after {
+	content: ", ";
+}
+.clients .single:last-of-type::after {
+	content: "";
+}

@@ -65,8 +65,18 @@
 	</section>
 </div>
 
+<?php 
+$client_query = new WP_Query( array( 'post_type' => 'client', 'posts_per_page' => -1 ) );
+
+if( $client_query->have_posts() ):
+?>
 <section class="clients">
-	<!-- Client list here -->
+	<h2>Clients</h2>
+	<?php while( $client_query->have_posts() ) : $client_query->the_post(); ?>
+		<span class="single"><a href="<?php echo rjh_get_client_url( $client_query->post->ID ); ?>"><?php the_title(); ?></a></span>
+	<?php endwhile; ?>
 </section>
+
+<?php endif; ?>
 
 <?php get_footer(); ?>
