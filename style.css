@@ -109,9 +109,12 @@ a:hover {
 	padding-right: 1rem;
 }
 
+.home .project-title {
+	color: #999;
+	text-decoration: underline;
+}
 .home .project-title:hover {
 	cursor: pointer;
-	text-decoration: underline;
 }
 
 .page-template-page-projects .projects {
