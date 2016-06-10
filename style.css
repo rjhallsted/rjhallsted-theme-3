@@ -78,6 +78,12 @@ a:hover {
 	display: block;
 }
 
+p img {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+
 
 .home ul {
 	padding-left: 1rem;
