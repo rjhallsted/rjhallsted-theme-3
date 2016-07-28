@@ -109,6 +109,17 @@ p img {
 	padding: 1rem;
 }
 
+.contact-link-container {
+	width: 100%;
+	float: left;
+}
+
+.typeform-share {
+	text-align: center;
+	display: block;
+	margin: 0 auto 2rem;
+}
+
 /*projects*/
 
 .projects-container {
