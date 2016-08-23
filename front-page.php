@@ -7,17 +7,17 @@
 <h1 class="front-page-title center"><?php bloginfo('name'); ?></h1>
 
 <div class="front-page-about center">
-	<p><?php echo get_theme_mod('rjh_about'); ?></p>
+	<p><?php echo wpautop( get_theme_mod('rjh_about') ); ?></p>
 </div>
 
 <div class="links-container">
+	<?php
+	$project_query = new WP_Query(array( 'post_type' => 'project' ));
+
+	if( $project_query->have_posts() ) :
+	?>
 	<section class="projects-container half">
 		<h2>Projects</h2> <!--link to projects-->
-		<?php
-		$project_query = new WP_Query(array( 'post_type' => 'project' ));
-
-		if( $project_query->have_posts() ) :
-		?>
 			<ul class="projects">
 
 		<?php while( $project_query->have_posts() ) : $project_query->the_post(); ?>
@@ -32,20 +32,18 @@
 
 		<?php endwhile; ?>
 			</ul>
-		<?php else: ?>
-			<p>Sorry, but nothing was found here.</p>
-		<?php endif;?>
-		<?php wp_reset_postdata(); ?>
 	</section>
+	<?php endif;?>
+	<?php wp_reset_postdata(); ?>
 
+	<?php
+	$writing_query = new WP_Query( array(
+		'posts_per_page' => 5,
+		'post_type' => array('post', 'writing-link') ) );
+	if( $writing_query->have_posts() ) :
+	?>
 	<section class="writing half">
 		<h2>Writing</h2> <!--link to writing-->
-		<?php
-		$writing_query = new WP_Query( array(
-			'posts_per_page' => 5,
-			'post_type' => array('post', 'writing-link') ) );
-		if( $writing_query->have_posts() ) :
-		?>
 			<ul class="post-list">
 		<?php while( $writing_query->have_posts() ) : $writing_query->the_post(); ?>
 		<?php 
@@ -58,26 +56,29 @@
 				<li><a href="<?php echo $the_link; ?>"><?php the_title(); ?></a></li>
 		<?php endwhile; ?>
 			</ul>
-		<?php else :  ?>
-			<p>Sorry, but nothing was found here.</p>
-		<?php endif; ?>
-		<?php wp_reset_postdata(); ?>
 	</section>
+	<?php endif; ?>
+	<?php wp_reset_postdata(); ?>
+
+
+	<?php 
+	$client_query = new WP_Query( array( 'post_type' => 'client', 'posts_per_page' => -1 ) );
+
+	if( $client_query->have_posts() ):
+	?>
+	<section class="clients">
+		<h2>Clients</h2>
+			<ul>
+				<?php while( $client_query->have_posts() ) : $client_query->the_post(); ?>
+					<li>
+						<span class="single"><a href="<?php echo rjh_get_client_url( $client_query->post->ID ); ?>"><?php the_title(); ?></a></span>
+					</li>
+				<?php endwhile; ?>
+			</ul>
+	</section>
+
+	<?php endif; ?>
+
+	<?php wp_reset_postdata(); ?>
 </div>
-
-<?php 
-$client_query = new WP_Query( array( 'post_type' => 'client', 'posts_per_page' => -1 ) );
-
-if( $client_query->have_posts() ):
-?>
-<section class="clients">
-	<h2>Clients</h2>
-	<?php while( $client_query->have_posts() ) : $client_query->the_post(); ?>
-		<span class="single"><a href="<?php echo rjh_get_client_url( $client_query->post->ID ); ?>"><?php the_title(); ?></a></span>
-	<?php endwhile; ?>
-</section>
-
-<?php endif; ?>
-
-<?php wp_reset_postdata(); ?>
 <?php get_footer(); ?>
